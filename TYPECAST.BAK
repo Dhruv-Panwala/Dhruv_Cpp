@@ -1,0 +1,41 @@
+#include<iostream.h>
+#include<conio.h>
+
+class demo{
+public:
+	int x,y;
+
+	demo(){
+
+	}
+	demo(int h)
+	{
+		x=h;
+	    //	y=0;
+	}
+
+	void SetData(int a,int b)
+	{
+		x=a;
+		y=b;
+	}
+	void display()
+	{
+		cout<<endl<<x<<endl<<y;
+
+	}
+};
+
+void main()
+{
+	clrscr();
+	demo d1(4);
+	d1.SetData(40,92);
+	d1.display();
+
+	int u;
+	u=44;
+	d1= u;
+	d1.display();
+	getch();
+}

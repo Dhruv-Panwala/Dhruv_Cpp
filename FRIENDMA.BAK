@@ -1,0 +1,37 @@
+#include<iostream.h>
+#include<conio.h>
+
+class maths{
+private:
+	int n1,n2,ans;
+
+public:
+	void setData(const int no1,const int no2)
+	{
+	    n1=no1;
+	    n2=no2;
+	    ans=0;
+	}
+	void disp()
+	{
+		cout<<"\nn1 : "<<n1<<"\tn2 : "<<n2<<"\tans : "<<ans;
+	}
+	friend void add(maths &m);
+};
+void add(maths &m1)
+{
+	m1.ans=m1.n1+m1.n2;
+}
+
+void main()
+{
+	maths m;
+	clrscr();
+	m.setData(10,15);
+	m.disp();
+	add(m);
+	cout<<"\nAfter Addition : ";
+	m.disp();
+	getch();
+
+}

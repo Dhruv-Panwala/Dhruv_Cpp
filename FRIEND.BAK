@@ -1,0 +1,39 @@
+#include<iostream.h>
+#include<conio.h>
+
+class calc{
+private:
+	int n1,n2;
+
+public:
+	void setData(int no1,int no2)
+	{
+		n1=no1;
+		n2=no2;
+	}
+	void disp()
+	{
+		cout<<"\nn1 : "<<n1<<"\tn2 : "<<n2;
+	}
+	friend void swap(calc &c);
+};
+
+void swap(calc &c)
+{
+	int temp;
+	c.n1=temp;
+	c.n1=c.n2;
+	c.n2=temp;
+}
+
+void main()
+{
+	calc c1;
+	clrscr();
+	c1.setData(15,18);
+	c1.disp();
+	cout<<"\nAfter Swapping: ";
+	swap(c1);
+	c1.disp();
+	getch();
+}

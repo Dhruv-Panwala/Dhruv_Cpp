@@ -1,0 +1,12 @@
+#include<iostream.h>
+#include<conio.h>
+
+void main()
+{
+	clrscr();
+	cout<<"Hello Sir"<<endl<<"Good Afternoon";
+	 int num1,num;
+	 cin>>num>>num1;
+	 cout<<num<<"Hello"<<endl<<num1;
+	getch();
+}

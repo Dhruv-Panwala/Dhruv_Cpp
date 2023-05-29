@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+	int a[4],i,j,max,min;
+	clrscr();
+	for(i=0;i<4;i++)
+	{
+		printf("\nEnter number in a[%d]: ",i);
+		scanf("%d",&a[i]);
+	}
+	for(i=0;i<4;i++)
+	{
+		for(j=0;j<i;j++)
+		{
+			if(a[i]>a[j])
+			{
+			  max=a[i];
+			}
+
+			if(a[i]<a[j])
+			{
+				min=a[i];
+			}
+
+		}
+
+	}
+	printf("\nMax num = %d",max);
+	printf("\nMin num = %d",min);
+
+	getch();
+}
