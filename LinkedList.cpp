@@ -7,7 +7,7 @@ private:
     struct node
     {
         int item;
-        int *next;
+        node *next;
     };
     node *start;
 public:
@@ -16,6 +16,28 @@ public:
         start=NULL;
     }
 
+    node * search_ele(int old_data)
+    {
+        node *t;
+
+        if(start==NULL)
+        {
+            return (NULL);
+        }
+        else{
+            t=start;
+        while(t!=NULL)
+        {
+            if(t->item==old_data)
+            {
+                return t;
+            }
+            else{
+                t=t->next;
+            }
+        }
+    }
+}
     void insertatstart(int data);
     void insertatspecific(int old_data,int data);
     void insertatlast(int data);
@@ -26,22 +48,23 @@ public:
     int elementAt(int);
     void printelements();
     void edit_ele(int old_data,int new_data);
+    void sorted();
 };
+
 
 void LinkedList::insertatstart(int data)
 {
-    node *n ;
+    node *n= new node;
     n->item=data;
+    n->next=start;
     start=n;
-    //n->next=start;
-
-
 }
 
-void insertatspecific(int old_data,int data)
+void LinkedList::insertatspecific(int old_data,int data)
 {
-    node *n,*t=new node;
-    t=Search_ele(old_data);
+    node *n,*t;
+
+    t=search_ele(old_data);
     if(t==NULL)
     {
         cout<<"Na thay"<<endl;
@@ -55,17 +78,19 @@ void insertatspecific(int old_data,int data)
 
 void LinkedList::insertatlast(int data)
 {
-    node *n,*t= new node;
+    node *n= new node;
+    node *t = new node;
     n->item=data;
     n->next=NULL;
+
     if(start==NULL)
     {
         cout<<"Underflow";
     }
     else
     {
-        t->next=start;
-        while(t->next!=NULL)
+        t=start;
+        while(t->next!=0)
         {
             t = t->next;
         }
@@ -94,9 +119,11 @@ void LinkedList::deleteatspecific()
 {
     if(start==NULL)
     {
-        cout<<"LinkedList is underflow";
+        cout<<"LinkedList underflow";
     }
     else{
+        node *n,*t;
+        t=start;
 
     }
 }
@@ -111,7 +138,7 @@ int LinkedList::deleteatlast()
     else
     {
         node *t1,*t2 = new node;
-        *t2=*t1=start;
+        t2=t1=start;
         while(t1->next != NULL)
         {
             t2->next=t1;
@@ -146,7 +173,7 @@ int LinkedList::countNode()
 
 int LinkedList::elementAt(int index)
 {
-    len=countNode();
+    int len=countNode();
     if(index>len)
     {
         return NULL;
@@ -172,8 +199,8 @@ void LinkedList::printelements()
     else
     {
         node *t;
-        t->next=start;
-        while(t->next!=NULL)
+        t=start;
+        while(t!=NULL)
         {
             cout<<t->item<<"\t";
             t=t->next;
@@ -202,9 +229,25 @@ void LinkedList::edit_ele(int old_data,int new_data)
     }
 }
 
+void LinkedList::sorted()
+{
+    node *t,*n;
+    if(start==NULL)
+    {
+        cout<<"LinkedList Underflow";
+    }
+    else
+    {
+
+    }
+}
+
+
 main()
 {
     LinkedList l1;
     l1.insertatstart(55);
+//    li.insertatspecific(10,12)
+    l1.insertatlast(42);
     l1.printelements();
 }

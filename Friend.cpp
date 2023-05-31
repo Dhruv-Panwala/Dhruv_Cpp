@@ -1,0 +1,3 @@
+class friend_func{
+
+}
